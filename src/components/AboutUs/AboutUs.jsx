@@ -5,6 +5,7 @@ import './AboutUs.css';
 function AboutUs() {
   return (
     <div className="about-us">
+      <p>Encontre mais informações sobre nosso site aqui.</p>
       <ul>
         <li>
           <Link to="site-history">Nossa História</Link>
@@ -13,7 +14,6 @@ function AboutUs() {
           <Link to="site-mission">Nossa Missão</Link>
         </li>
       </ul>
-      <p>Encontre mais informações sobre nosso site aqui.</p>
       <Outlet />
     </div>
   );
