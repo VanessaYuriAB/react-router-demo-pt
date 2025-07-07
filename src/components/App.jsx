@@ -1,19 +1,42 @@
 import Header from './Header/Header';
 import Dashboard from './Dashboard/Dashboard';
+
 import AboutMe from './AboutMe/AboutMe';
 import Reviews from './Reviews/Reviews';
 import AboutUs from './AboutUs/AboutUs';
+
 import MyStory from './AboutMe/MyStory';
 import Hobbies from './AboutMe/Hobbies';
 import Contact from './AboutMe/Contact';
+
 import SiteHistory from './AboutUs/SiteHistory';
 import SiteMission from './AboutUs/SiteMission';
 
+import Review from './Review/Review';
+
 import { Routes, Route } from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
 
 import './App.css';
 
 function App() {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    // Captura os dados de avaliação a partir do servidor
+    fetch('https://emoji-critic.pt-br.tripleten-services.com/v1/reviews')
+      .then((res) => {
+        // Verifica se a resposta do servidor é bem-sucedida e converte a resposta em JSON
+        return res.json();
+      })
+      .then((data) => {
+        // Envia o corpo da resposta para a função setter, atualizando o estado 'reviews' com os dados recebidos
+        setReviews(data);
+      })
+      .catch(console.error); // Captura e exibe erros que possam ocorrer durante a requisição
+  }, []); // Um array de dependência vazio significa que o hook roda apenas quando o componente é iniciado.
+
   return (
     <div className="App">
       <Header />
@@ -21,7 +44,12 @@ function App() {
       <Routes>
         {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard na página inicial. */}
         <Route path="/" element={<Dashboard />} />
-        <Route path="/reviews" element={<Reviews />} />
+        {/* avaliações passadas como prop para o componente Reviews. */}
+        <Route path="/reviews" element={<Reviews reviews={reviews} />} />
+        <Route
+          path="/reviews/:reviewId"
+          element={<Review reviews={reviews} />}
+        />
         <Route path="/about-me" element={<AboutMe />}>
           <Route path="/about-me/my-story" element={<MyStory />} />
           <Route path="/about-me/hobbies" element={<Hobbies />} />
