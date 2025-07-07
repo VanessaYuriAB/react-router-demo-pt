@@ -2,6 +2,12 @@ import Header from './Header/Header';
 import Dashboard from './Dashboard/Dashboard';
 import AboutMe from './AboutMe/AboutMe';
 import Reviews from './Reviews/Reviews';
+import AboutUs from './AboutUs/AboutUs';
+import MyStory from './AboutMe/MyStory';
+import Hobbies from './AboutMe/Hobbies';
+import Contact from './AboutMe/Contact';
+import SiteHistory from './AboutUs/SiteHistory';
+import SiteMission from './AboutUs/SiteMission';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -11,14 +17,20 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* Aninhamento de um componente Route dentro de um componente Routes e definição do caminho e atributos do elemento para renderização do Dashboard na página inicial. */}
+      {/* Aninhamento de componentes Route dentro de um componente Routes e definição de caminhos e atributos dos elementos para renderização dos mesmos. */}
       <Routes>
-        {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard. */}
+        {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard na página inicial. */}
         <Route path="/" element={<Dashboard />} />
-        {/* Definição de uma rota para o caminho '/reviews' que renderiza o componente Reviews. */}
         <Route path="/reviews" element={<Reviews />} />
-        {/* Definição de uma rota para o caminho '/about-me' que renderiza o componente AboutMe. */}
-        <Route path="/about-me" element={<AboutMe />} />
+        <Route path="/about-me" element={<AboutMe />}>
+          <Route path="/about-me/my-story" element={<MyStory />} />
+          <Route path="/about-me/hobbies" element={<Hobbies />} />
+          <Route path="/about-me/contact" element={<Contact />} />
+        </Route>
+        <Route path="/about-us" element={<AboutUs />}>
+          <Route path="/about-us/site-history" element={<SiteHistory />} />
+          <Route path="/about-us/site-mission" element={<SiteMission />} />
+        </Route>
       </Routes>
     </div>
   );
