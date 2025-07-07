@@ -14,6 +14,8 @@ import SiteMission from './AboutUs/SiteMission';
 
 import Review from './Review/Review';
 
+import PageNotFound from './PageNotFound/PageNotFound';
+
 import { Routes, Route } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
@@ -42,6 +44,8 @@ function App() {
       <Header />
       {/* Aninhamento de componentes Route dentro de um componente Routes e definição de caminhos e atributos dos elementos para renderização dos mesmos. */}
       <Routes>
+        {/* Definição de uma rota para o caminho '*' (curinga) que renderiza o componente PageNotFound quando nenhuma outra rota é correspondida. */}
+        <Route path="*" element={<PageNotFound />} />
         {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard na página inicial. */}
         <Route path="/" element={<Dashboard />} />
         {/* avaliações passadas como prop para o componente Reviews. */}
