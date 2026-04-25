@@ -3,12 +3,14 @@
 Este é um aplicativo **React** simples criado com **Vite**, desenvolvido para demonstrar o
 uso do **React Router (v6)** no bootcamp de **Desenvolvimento Web da TripleTen**.
 
-O projeto faz parte do processo de aprendizado e consolidação dos conceitos fundamentais
-de roteamento, incluindo **SPA (Single Page Application)**, navegação declarativa entre
-páginas, organização de rotas, rotas aninhadas e tratamento de páginas não encontradas
-(404).
+É um **projeto educacional guiado**, desenvolvido com base em orientações, exercícios
+práticos e boas práticas apresentadas ao longo da **Sprint 14 (Roteamento React e**
+**Gerenciamento de Estado) do bootcamp de Desenvolvimento Web da TripleTen**, com o
+objetivo de consolidar conceitos fundamentais de roteamento em aplicações React, incluindo
+SPA (Single Page Application), navegação declarativa entre páginas, organização de rotas,
+rotas aninhadas e tratamento de páginas não encontradas (404).
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-acesse_aqui-green)](https://vanessayuriab.github.io/react-router-demo-pt/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-acesse_aqui-yellow)](https://vanessayuriab.github.io/react-router-demo-pt/)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -23,7 +25,9 @@ páginas, organização de rotas, rotas aninhadas e tratamento de páginas não 
 
 ### Roteamento e Navegação
 
-- Configuração de rotas com `BrowserRouter`, `Routes` e `Route`
+- Configuração de rotas, inicialmente, com `BrowserRouter`, `Routes` e `Route`
+  - Depois, refatorado para `HashRouter` para garantir compatibilidade com o deploy via
+    **GitHub Pages**, evitando erros de rota (404) em atualizações de página
 - Navegação declarativa usando `Link` e `NavLink`
 - Destaque visual automático para rotas ativas (`NavLink`)
 - Navegação programática com `useNavigate`
@@ -87,7 +91,7 @@ react-router-demo-pt/
 - Cada pasta dentro de `components` representa uma funcionalidade ou seção da aplicação
 - O roteamento principal é configurado em `App.jsx` que centraliza a configuração das
   rotas
-- `main.jsx` é o ponto de entrada da aplicação, onde está configurado o `BrowserRouter`
+- `main.jsx` é o ponto de entrada da aplicação, onde está configurado o `HashRouter`
 
 ## ▶️ Como Executar o Projeto
 
@@ -118,6 +122,18 @@ npm run dev
 A página está disponível via **GitHub Pages**.
 
 ➜ https://vanessayuriab.github.io/react-router-demo-pt/
+
+## ⚠️ Observação sobre Roteamento e Deploy
+
+Para viabilizar o deploy em **GitHub Pages**, o projeto utiliza `HashRouter` em vez de
+`BrowserRouter`.
+
+Essa abordagem é necessária porque o GitHub Pages não oferece suporte nativo a
+redirecionamento de rotas em aplicações SPA, o que poderia resultar em erros **404** ao
+atualizar páginas ou acessar rotas internas diretamente.
+
+Com o uso de `HashRouter`, todas as rotas passam a ser interpretadas corretamente no
+ambiente estático.
 
 ## 🎯 Objetivo Educacional
 
