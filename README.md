@@ -8,6 +8,8 @@ de roteamento, incluindo **SPA (Single Page Application)**, navegação declarat
 páginas, organização de rotas, rotas aninhadas e tratamento de páginas não encontradas
 (404).
 
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-acesse_aqui-green)](https://vanessayuriab.github.io/react-router-demo-pt/)
+
 ## 🛠️ Tecnologias Utilizadas
 
 - React
@@ -110,6 +112,12 @@ npm run dev
 
 4. O projeto será aberto no navegador via **Vite**, no endereço indicado (configurado, no
    `vite.config.js`, para `http://localhost:3000` com abertura automática).
+
+## 🔗 Projeto Online
+
+A página está disponível via **GitHub Pages**.
+
+➜ https://vanessayuriab.github.io/react-router-demo-pt/
 
 ## 🎯 Objetivo Educacional
 
