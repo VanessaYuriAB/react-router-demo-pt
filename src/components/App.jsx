@@ -33,35 +33,38 @@ function App() {
         return res.json();
       })
       .then((data) => {
-        // Envia o corpo da resposta para a função setter, atualizando o estado 'reviews' com os dados recebidos
+        // Envia o corpo da resposta para a função setter, atualizando o estado 'reviews'
+        // com os dados recebidos
         setReviews(data);
       })
-      .catch(console.error); // Captura e exibe erros que possam ocorrer durante a requisição
-  }, []); // Um array de dependência vazio significa que o hook roda apenas quando o componente é iniciado.
+      .catch(console.error); // Captura e exibe erros que possam ocorrer durante a
+    // requisição
+  }, []); // Um array de dependência vazio significa que o hook roda apenas quando o
+  // componente é iniciado.
 
   return (
     <div className="App">
       <Header />
-      {/* Aninhamento de componentes Route dentro de um componente Routes e definição de caminhos e atributos dos elementos para renderização dos mesmos. */}
+      {/* Aninhamento de componentes Route dentro de um componente Routes e definição de 
+      caminhos e atributos dos elementos para renderização dos mesmos. */}
       <Routes>
-        {/* Definição de uma rota para o caminho '*' (curinga) que renderiza o componente PageNotFound quando nenhuma outra rota é correspondida. */}
+        {/* Definição de uma rota para o caminho '*' (curinga) que renderiza o componente 
+        PageNotFound quando nenhuma outra rota é correspondida. */}
         <Route path="*" element={<PageNotFound />} />
-        {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard na página inicial. */}
+        {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard 
+        na página inicial. */}
         <Route path="/" element={<Dashboard />} />
         {/* avaliações passadas como prop para o componente Reviews. */}
         <Route path="/reviews" element={<Reviews reviews={reviews} />} />
-        <Route
-          path="/reviews/:reviewId"
-          element={<Review reviews={reviews} />}
-        />
+        <Route path="/reviews/:reviewId" element={<Review reviews={reviews} />} />
         <Route path="/about-me" element={<AboutMe />}>
-          <Route path="/about-me/my-story" element={<MyStory />} />
-          <Route path="/about-me/hobbies" element={<Hobbies />} />
-          <Route path="/about-me/contact" element={<Contact />} />
+          <Route path="my-story" element={<MyStory />} />
+          <Route path="hobbies" element={<Hobbies />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="/about-us" element={<AboutUs />}>
-          <Route path="/about-us/site-history" element={<SiteHistory />} />
-          <Route path="/about-us/site-mission" element={<SiteMission />} />
+          <Route path="site-history" element={<SiteHistory />} />
+          <Route path="site-mission" element={<SiteMission />} />
         </Route>
       </Routes>
     </div>
