@@ -48,9 +48,6 @@ function App() {
       {/* Aninhamento de componentes Route dentro de um componente Routes e definição de 
       caminhos e atributos dos elementos para renderização dos mesmos. */}
       <Routes>
-        {/* Definição de uma rota para o caminho '*' (curinga) que renderiza o componente 
-        PageNotFound quando nenhuma outra rota é correspondida. */}
-        <Route path="*" element={<PageNotFound />} />
         {/* Definição de uma rota para o caminho '/' que renderiza o componente Dashboard 
         na página inicial. */}
         <Route path="/" element={<Dashboard />} />
@@ -66,6 +63,10 @@ function App() {
           <Route path="site-history" element={<SiteHistory />} />
           <Route path="site-mission" element={<SiteMission />} />
         </Route>
+
+        {/* Definição de uma rota para o caminho '*' (curinga) que renderiza o componente 
+        PageNotFound quando nenhuma outra rota é correspondida. */}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
